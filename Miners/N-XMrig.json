@@ -1,0 +1,17 @@
+{
+"Path" : ".\\Bin\\NVIDIA-xmrig\\xmrig-nvidia.exe",
+"ExtractionPath" : ".\\Bin\\NVIDIA-xmrig\\",
+"Uri" : "https://github.com/xmrig/xmrig-nvidia/releases/download/v2.4.2/xmrig-nvidia-2.4.2-cuda9-win64.zip",
+"Types" : ["NVIDIA"],
+"Arguments" : "-o #PROTOCOL#://#SERVER#:#PORT# -u #LOGIN# -p #PASSWORD# -R 10 -r 4 --api-port #APIPORT# --cuda-devices #DEVICES# --cuda-launch 56x14 --donate-level 1 #ALGORITHMPARAMETERS# ",
+"API" : "XMRig",
+"Wrap" : false,
+"Fee" : 0,
+"Dualmining":false,
+"PrelaunchCommand":"",
+"Fee" : 0.01,
+"Algorithms": [
+              {"cryptonight":"-a cryptonight"}
+              ]
+
+}

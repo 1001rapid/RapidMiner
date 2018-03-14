@@ -1,0 +1,17 @@
+{
+"Path" : ".\\Bin\\CPU-XMRIG_MSVC\\xmrig.exe",
+"ExtractionPath" : ".\\Bin\\CPU-XMRIG_MSVC\\",
+"Uri" : "https://github.com/xmrig/xmrig/releases/download/v2.4.4/xmrig-2.4.4-msvc-win64.zip",
+"Types" : ["CPU"],
+"Arguments" : "-o #PROTOCOL#://#SERVER#:#PORT# -u #LOGIN# -p #PASSWORD# --api-port #APIPORT# --donate-level 1 #ALGORITHMPARAMETERS#",
+"API" : "XMRig",
+"Apiport": 12358,
+"Dualmining":false,
+"PrelaunchCommand":"",
+"Fee" : 0.01,
+"Algorithms": [
+                {"CRYPTONIGHT":""}
+              ]
+
+}
+ 
