@@ -1,0 +1,88 @@
+--ID for your rig
+
+@@WORKERNAME=F3x980Tix3
+
+--Pool username for not anonymous pools like SprNova, BlocksFactory or MiningPoolHub
+
+@@USERNAME=1001rapid
+
+
+--Prefered Currency you will be pay, only for anonymous pools with autoexchange (Zpool, HR...), must set wallet for this currency on "Wallets Section"
+
+@@CURRENCY=BTC
+
+--Local Currency showed on profits screen. (DOLLAR,EURO,GBP)
+
+@@LOCALCURRENCY=DOLLAR
+
+-- Location of your rig: EUROPE/US/ASIA/GB (some pool may have no desired location, US will be selected then)
+
+@@LOCATION=EUROPE
+
+
+-- Time in seconds for recheck profit and select more profitable algorithm (less than 600 not recommended)
+
+@@INTERVAL=300
+
+
+- Benchmarks interval time (less than 200 not recomended)
+
+@@BENCHMARKTIME=300
+
+
+-- Screen to be shown at start of program (WALLETS/CURRENT/HISTORY/PROFITS)
+
+@@STARTSCREEN=CURRENT
+
+-- Gpu Groups, you can group your cards as you want, my recomendation is a group for each model of card on your rig. Each group will be bechmarking and running separately
+-- You can identify your GPUs id launching GpuList.bat. For NVIDIA, GPUPlatform is irrelevant, for AMD, try 0,1,2
+-- If you change this groups you must delete stats folder content for becnchmark run again
+-- Type must be NVIDIA or AMD 
+-- Example for rig with 5 nvidia identical cards @@GPUGROUPS=[{"GroupName" : "Rig1070","Type":"NVIDIA","GpuPlatform":"0","Gpus":"0,1,2,3,4"}]
+-- Example for rig with  7 nvidia (5x1080,2x1060) @@GPUGROUPS=[{"GroupName" : "1080","Type":"NVIDIA","GpuPlatform":"0","Gpus":"0,1,2,3,4"} , {"GroupName" : "1060","Type":"NVIDIA","GpuPlatform":"0","Gpus":"5,6"} ]
+-- For CPU Mining you must add a group with Type "CPU", example {"GroupName" : "CPU","Type":"CPU"}
+
+@@GPUGROUPS=[{"GroupName" : "980Ti3","Type":"NVIDIA","Gpus":"0,2,3"}]
+
+
+-- WALLETS, for autoexchange pools you only need set a wallet for prefered currency (@@currency), other pools without autoexchange like Yiimp need as login a wallet of same coin you are mining, you can add wallets while pattern @@WALLET_XXX = YYYYY (XXX=currency symbol; YYYYY= your wallet)
+-- For nicehash, if a @@WALLET_BTC_NICE=XXXXXXX is found it will be used, if not @@WALLET_BTC will be used
+-- For some coins like Electroneum you need a Payment ID, add it after your address separated by dot
+
+@@WALLET_BTC=1QKDVbcTsUDwkWbYNj6FzpYvySWr253jaz
+-- @@WALLET_ETH=0xccf49e31b6b205309628818f503d70286199ec66
+@@WALLET_XMR=4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbS5wz89YfM47D3ceJAL
+@@WALLET_PASC=86646.af14824dd486f06d
+-- @@WALLET_BTX=1EqS1VZ1A5qZF6x72DRgLs4oULLsMcVDJd
+-- @@WALLET_DCR=DshK6VgbzwJjaAXmvrmMEYq3bqZJLrQbwzS
+-- @@WALLET_DNR=DMBdpDVrtj6DBEcE6t9wRbujw7NM7ziLYp
+-- @@WALLET_EXP=0x678167c192c6b40d913a2ffcc92887575db56d56
+-- @@WALLET_FTC=6oVvPeadc99vchwaL9jThPyvDCQointDdQ
+-- @@WALLET_GRS=FmjEgiAziz5L5a3674cWQRwj2eSCbSrMYn
+-- @@WALLET_ORB=oewLAyLNSQR6uRu5WjY1cHSWnQ1oPLXsCs
+-- @@WALLET_SIB=SgxUftvp7zm66yCoHiKzJCzvopzn7cUmhw
+-- @@WALLET_SIGT=BJupFgEmjzE3U6VvH3vmNSBL6AkdxQjoAn
+-- @@WALLET_VTC=VrBVPv2PKLv6RrgKnoh71SzdFjmX5Ly8Dq
+-- @@WALLET_XLR=sc51ZBVNJoaZ3gWNbN62QdYgmcFTVRVg4W
+-- @@WALLET_XVG=DMpSQmLpitKrdnaHomJSnMP3Q77ZJ9f2aF
+@@WALLET_ZEC=t1aQfbrj1uQeMLw5rMTNkrrQyWJBySWL2NL
+-- @@WALLET_UBQ=0xcd11aa1fec676c0d17ce5d88d13fec2dcf0f0cfd
+-- @@WALLET_MUSIC=0x6beb3f2cf763417cce0fb010c038dac7973d5b77
+-- @@WALLET_NEVA=NgbgjrSWmK8h1R6f41FAJu6GE22H9Q5v7R
+-- @@WALLET_PIRL=NgbgjrSWmK8h1R6f41FAJu6GE22H9Q5v7R
+
+
+
+-- API Keys, Non Anonymous pools (Suprnova, MPH) requires api key to get wallets info (format @@APIKEY_NAMEOFPOOL=XXXXXXXXXX)
+
+@@APIKEY_MINING_POOL_HUB=2ae1a44c6ff51fec44d7902095710890c8c431c042cce1c51fcab52bcb316099
+-- @@APIKEY_SUPRNOVA=cd0384069c314bb6d88408bc4342a51ec1d45f90577742e4527574a402e4afed
+
+
+-- Number of minutes each day (NOT PERCENT) of donation
+
+@@DONATE=10
+
+
+
+
