@@ -1,121 +1,82 @@
 # RapidMiner
 Fast multipool and multialgo windows miner
+Консольный аналог Nicehash
 
----- POOLS SUPORTED ---------------------------------------
+Не совсем аналог, хотя, если программу использовать только на Найсе, то вполне себе аналог, 
+плюс есть возможность использовать новые майнеры.
+В общем, программа для работы с мультипулами. Выбирает где копать, основываясь на данный с WTM.
 
-AHASHPOOL -- Anonymous, autoexchange to selected coin in config.txt
-BLAZEPOOL -- Anonymous, autoexchange to selected coin in config.txt
-BLOCKSFACTORY -- registration required, one registration for all pools, no autoexchange
-FLYPOOL -- Anonymous, manual mode only
-HASHREFINERY -- Anonymous, autoexchange to selected coin in config.txt
-ITALYIIMP -- Anonymous, autoexchange to selected coin in config.txt
-MININGPOOLHUB -- registration required, autoexchange to selected coin on pool´s web.
-NANOPOOL -- Anonymous, no autoexchange, must set a wallet for each coin
-NICEHASH-- Anonymous, autoexchange to BTC
-SUPRNOVA -- registration required, one registration for all pools except bitcoin cash, no autoexchange
-UNIMINING -- No registration, No autoexchange, need wallet for each coin on config.txt
-WHATTOMINE (virtual) - Based on statistics of whattomine, it use MPH and Suprnova servers to mine most profitable coin, you must configure wallets on config.cfg and also have an account on Suprnova to us
-YIIMP -- Anonymous, no autoexchange, must set a wallet for each coin
-ZERGPOOL -- Anonymous, autoexchange to selected coin in config.txt
-ZPOOL -- Anonymous, autoexchange to selected coin in config.txt
+--==[Немного истории]==--
+Во время отключения Найса, долго искал что-то похожее и случайно (по ссылке на одном из мультипулов) 
+набрёл на замечательную программу Megaminer от Tutulino (https://github.com/tutulino/Megaminer), 
+основное её отличие от других подобных программ было то, что можно было создавать группы видекарт, 
+что было очень полезно не только с винегретом из них, а даже, когда все одинаковые, потому что та, которая предполагается системой 
+для вывода изображения была намного нестабильнее остальных и для неё желательно было исключить некоторые алгоритмы, 
+которые приводили к выносу драйверов и прочим радостям. И делало это маленькое свойств эту программу очень похожей на NiceHashMiner, 
+в котором тоже есть замечательная возможность настроить каждую карточку отдельно.
 
+И всё бы ничего, но автор начал вводить новые функции и переработал механизм работы так, что каждый новый цикл работы майнеров 
+начинал занимать всё больше и больше времени. Это стало так раздражать, что я решил запилить свою программу.
 
----- INSTRUCTIONS -----------------------------------------
+За основу взял Megaminer версии 5.0b2, в котором ещё присутствовал лог-файл, по сути являющийся скриншотом осноного окна программы. 
+Это очень удобно для мониторинга ферм в локальной сети - можно не заходить не компы через программы удалённого доступа, 
+а любым консольным файловым менеджером открыть лог-файл, прокрутить в конец 
+и наблюдать в реальном времени окно программы через текстовый файл.
+Вот тут показан мониторинг двух компов:
+https://www.youtube.com/watch?v=5tKwqa1eUIw
 
-0. Download latest Release from github
+Но так как новые возможности тоже хочется, то добовляю по возможности.
 
-1. Edit CONFIG.TXT file before mining
+--==[Системные требования]==--
+Железо:	CPU - минимум .) я использую старые материнки со всякими двухядерными Intel и AMD
+	HDD - от 60 Гб (оптимально 80 и больше), программа: 500 Мб + система + файл от 32 Гб
+	RAM - 2 Гб
+Операционка: Я везде использую Windows 7 sp1 x64, Tutulino обкатывает на 10-ке
 
-2. Exec start.bat for manual selection or edit AutoStartExample.bat for automatic boot without user prompt, you can use this parameters on your batch
-    *PoolsName = separated comma string of pools to run 
-	*MiningMode = Mode to check profit, note not all pools suport all modes (Automatic/Automatic24h/Manual). If manual mode is selected one coin must be passed on Coinsname parameter
-	*Algorithm = separated comma string of algorithms to run (optional)
-    *CoinsName = separated comma string of Coins to run (optional)
-    *Groupnames = Groups of gpu/cpu to run (based on your defined groups in config.txt @@Gpugroups section) (optional)
+Софт:	PowerShell v5.0
+	CUDA 9 (некоторые майнеры его требуют, можно их исключить, если не хотите ставить последние дрова, 
+		потому что с ними обычно начинаются проблемы, к примеру, у 1050 Ti перестала отображаться текущая мощность)
 
-3. Firt time, software will be donwloaded from miners github repositories
-	- As usual, some miners are detected as virus by your Antivirus, to avoid this you must set your instalation directory as excluded. For Windows Defender MM path is excluded automatic
+Что я ставлю на голую 7-ку, что бы гарантированно всё работало:
+1 - CCleaner (помогает при маленьких дисках)
+2 - ESET Smart Security (Firewall) - включаю только защиту узла и Firewall (первый день - режим обучения)
+3 - SP1 (KB976932)
+4 - D3DComplier - need for NET Framework install (KB4019990)
+5 - Microsoft.NET Framework 4.7 - web install (KB3186500)
+6 - Microsoft Visual C++ 2005-2017 (VCredist)
+7 - Update for Universal C Runtime (KB2999226)
+8 - Windows Support Tools (??? какой-то майнер запрашивал)
+9 - Windows Management Framework 5.0 includes updates to Windows PowerShell (KB3134760)	
+Windows Defender выключен, обновления выклчены.
+		
+--==[Установка и настройка]==--
 
-4. Your system will be benchmarked (long process)
+1. Скачивайте с https://github.com/1001rapid/RapidMiner последний релиз.
 
-5. Tuning (optional)
-	- you can edit miners folders content to delete miners or to assign/unassign algos to miners. 
-	- you can edit pools folders content to delete pools
-	- for advanced users, you can create miners or pools if are based on existing one.
+2. Редактируете файл CONFIG.TXT
 
+3. Запускаете батник. Самый простой вариант, используемый мною (все монеты в автоматическом режиме и на выбранных пулах) 
+- _RapidMiner.bat (только пулы выберете, какие нужно). 
+!!!Названия пулов должны быть написаны так же, как называются соотвествующие файлы в папке Pools.
+Так же присутствуют примеры батников для соломайнинга и для добычи нескольких монет.
+Можно всё делать в ручном режиме, запустив START.
 
+4. При первом запуске происходит скачивание (всё качается с GitHub) и установка майнеров.
 
----- UPGRADE PROCEDURE ------------------------------------
+5. При первом же запуске майнеры тестируются. Процесс долгий. Результат пишется в папку "Stats" отдельно по группам GPU, 
+если Вы их сконфигурировали в п.2. Рекомендую этот пункт проходить для каждой группы в отдельности (т.е. активировать по одной группе),
+так будет легче вычеслить нестабильный майнер, для исключения которого правится файл с результатами тестов, 
+где ставиться заведомо низкая цифра. 
 
-Safest way is download new software and copy from old version "stats" folders and "config.txt" file.
-If new verson has no miners update you can copy "bin" folder
-If there is a new miner version is recomended delete miner_algo_hashrate.txt files on miners folder to force benchmark again.
+6. Дольнейшая настройка:
+	- майнер можно исключить совсем, удалив (а лучше переместив в папку "Additional Miners") файл из папки "Miners";
+	- так же можно исключить пул, удалив его файл из папки "Pools", но лучше всё же, удалить его из запускающего батника);
+	- перед запуском майнера можно добавить запуск каких либо программ (тех же настроек), добавив командную строку в поле
+	  "PrelaunchCommand" соответствующего майнера (не всегда срабатывает, но вдруг кому то пригодится)).
 
+------
 
--------NEW FEATURES OVER BASE SOFTWARE -----------
+Сразу скажу, что делаю для себя, тут решил поделиться с коллегами, вдруг кому тоже понравится, 
+поэтому поддержка в формате "используем что есть" ), но вопросы можете задавать, по возможности, подскажу. 
 
--Menus sytem to choose coin/algo/pool and start mining
-
--One file config to start mining
-
--Can mine on "Virtual" Pool Whattomine, based on statistics of whattomine, it use MPH,Yiimp and Suprnova servers to mine most profitable coin, you must configure wallets on config.cfg and also have an account on Suprnova to use. 
-
--Can mine on any of this pools (or all at same time): Ahashpool, Nanopool, YIIMP, Nicehash, Zpool, Unimining, Whattomine (virtual) HashRefinery, MPH with auto coin change based on pool profit for each algorithm with dual mining between diferent pools (ex. Eth on MPH and lbry on Zpool)
-
--Can mine on Suprnova,Nicehash, MPH, Flypool or BlocksFactory pool without autochange or profit calculation, manual coin selection
-
--Fastest miner for each algo/coin preselected for Nvidia Pascal (08/01/2017) on all pools.
-
--Dual Mining between different pools (ex. Eth on MPH and lbry on Zpool)
-
--Profit info from Whattomine,Bittrex and Cryptopia (based on your real hashrate) for manual coin selection
-
--Unified software repository for all pools, no need one program for each pool
-
--On fail no wait for interval ends, instant relaunch.
-
--Auto Interval time for benchmarks, no need to change interval more.
-
--Local currency info on main screen
-
--Lastest version of miners available
-
--Nvidia SMI Info (Power, temperatures...)
-
--Pools Wallets actual and evolution info
- 
--Option to autochange based on 24h statistics (on supported pools)
-
--Option for asociate command to launch before run to each miner (nvidia inspector for example to set overclock)
-
--Miners and Pools fees are included in profit calculation
-
--For mixed rigs (or for testing purpose on same cards rigs) you can group your cards allowing each group work at its best algo and difficulty
-
-
-
------ DISCLAIMER ------------------------------------------
-
-Only tested on nvidia pascal (10X0), 980Ti and 670, sorry I haven't AMD card for testing purposes.
-
-Only for Windows (at this moment)
-
-Miners for AMD are included but not tested 
-
-Main core is forked from Tutulino Megaminer, you can download it from https://github.com/tutulino/Megaminer
-
-Core for auto change pools is forked from AaronSace MultipoolMiner, you can read info at https://github.com/aaronsace/MultiPoolMiner
-
-Profit calculations are estimates based on info provided by Pools/Whattomine for your bechmarked hashrate extrapolated to 24h. No real profit warranty.
-
-Pools/Whattomine statistics are based on past (luck, difficulty, exchange-rate, pool hashrte, network hashrate, etc), it can be not very accurate.
-
-Local Currency exchange rate to BTC is taken from Coindesk, Local currency profit can vary from whattomine revenue (instant), BTC revenue must be exact.
-
-
-
----- NO SCAM WARRANTY -------------------------------------
-
-You can see .ps1 files, are source code, miners are downloaded from github
-
-
+На подходе версия 1.2 улучшенная и доработаная, пока на обкатке
