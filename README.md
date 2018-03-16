@@ -1,6 +1,8 @@
 # RapidMiner #
 Fast multipool and multialgo windows miner
 
+English version of description in [README_en.md](https://github.com/1001rapid/RapidMiner/blob/master/README_en.md)
+
 **Поддержка на форумах:** [bits.media](https://forum.bits.media/index.php?/topic/78638-rapidminer-консольный-аналог-nicehash/)
 
 Консольный аналог Nicehash
