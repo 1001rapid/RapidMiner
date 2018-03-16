@@ -4,21 +4,21 @@ Fast multipool and multialgo windows miner
 ---- POOLS SUPORTED ---------------------------------------
 
 
-AHASHPOOL -- Anonymous, autoexchange to selected coin in config.txt
-BLAZEPOOL -- Anonymous, autoexchange to selected coin in config.txt
-BLOCKSFACTORY -- registration required, one registration for all pools, no autoexchange
-FLYPOOL -- Anonymous, manual mode only
-HASHREFINERY -- Anonymous, autoexchange to selected coin in config.txt
-ITALYIIMP -- Anonymous, autoexchange to selected coin in config.txt
-MININGPOOLHUB -- registration required, autoexchange to selected coin on pool?s web.
-NANOPOOL -- Anonymous, no autoexchange, must set a wallet for each coin
-NICEHASH-- Anonymous, autoexchange to BTC
-SUPRNOVA -- registration required, one registration for all pools except bitcoin cash, no autoexchange
-UNIMINING -- No registration, No autoexchange, need wallet for each coin on config.txt
-WHATTOMINE (virtual) - Based on statistics of whattomine, it use MPH and Suprnova servers to mine most profitable coin, you must configure wallets on config.cfg and also have an account on Suprnova to us
-YIIMP -- Anonymous, no autoexchange, must set a wallet for each coin
-ZERGPOOL -- Anonymous, autoexchange to selected coin in config.txt
-ZPOOL -- Anonymous, autoexchange to selected coin in config.txt
+- AHASHPOOL -- Anonymous, autoexchange to selected coin in config.txt
+- BLAZEPOOL -- Anonymous, autoexchange to selected coin in config.txt
+- BLOCKSFACTORY -- registration required, one registration for all pools, no autoexchange
+- FLYPOOL -- Anonymous, manual mode only
+- HASHREFINERY -- Anonymous, autoexchange to selected coin in config.txt
+- ITALYIIMP -- Anonymous, autoexchange to selected coin in config.txt
+- MININGPOOLHUB -- registration required, autoexchange to selected coin on pool?s web.
+- NANOPOOL -- Anonymous, no autoexchange, must set a wallet for each coin
+- NICEHASH-- Anonymous, autoexchange to BTC
+- SUPRNOVA -- registration required, one registration for all pools except bitcoin cash, no autoexchange
+- UNIMINING -- No registration, No autoexchange, need wallet for each coin on config.txt
+- WHATTOMINE (virtual) - Based on statistics of whattomine, it use MPH and Suprnova servers to mine most profitable coin, you must configure wallets on config.cfg and also have an account on Suprnova to us
+- YIIMP -- Anonymous, no autoexchange, must set a wallet for each coin
+- ZERGPOOL -- Anonymous, autoexchange to selected coin in config.txt
+- ZPOOL -- Anonymous, autoexchange to selected coin in config.txt
 
 
 ---- INSTRUCTIONS ----------------------------------------------
@@ -55,43 +55,25 @@ If there is a new miner version is recomended delete miner_algo_hashrate.txt fil
 
 -------NEW FEATURES OVER BASE SOFTWARE -----------
 
--Menus sytem to choose coin/algo/pool and start mining
-
--One file config to start mining
-
--Can mine on "Virtual" Pool Whattomine, based on statistics of whattomine, it use MPH,Yiimp and Suprnova servers to mine most profitable coin, you must configure wallets on config.cfg and also have an account on Suprnova to use. 
-
--Can mine on any of this pools (or all at same time): Ahashpool, Nanopool, YIIMP, Nicehash, Zpool, Unimining, Whattomine (virtual) HashRefinery, MPH with auto coin change based on pool profit for each algorithm with dual mining between diferent pools (ex. Eth on MPH and lbry on Zpool)
-
--Can mine on Suprnova,Nicehash, MPH, Flypool or BlocksFactory pool without autochange or profit calculation, manual coin selection
-
--Fastest miner for each algo/coin preselected for Nvidia Pascal (08/01/2017) on all pools.
-
--Dual Mining between different pools (ex. Eth on MPH and lbry on Zpool)
-
--Profit info from Whattomine,Bittrex and Cryptopia (based on your real hashrate) for manual coin selection
-
--Unified software repository for all pools, no need one program for each pool
-
--On fail no wait for interval ends, instant relaunch.
-
--Auto Interval time for benchmarks, no need to change interval more.
-
--Local currency info on main screen
-
--Lastest version of miners available
-
--Nvidia SMI Info (Power, temperatures...)
-
--Pools Wallets actual and evolution info
- 
--Option to autochange based on 24h statistics (on supported pools)
-
--Option for asociate command to launch before run to each miner (nvidia inspector for example to set overclock)
-
--Miners and Pools fees are included in profit calculation
-
--For mixed rigs (or for testing purpose on same cards rigs) you can group your cards allowing each group work at its best algo and difficulty
+- Menus sytem to choose coin/algo/pool and start mining
+- One file config to start mining
+- Can mine on "Virtual" Pool Whattomine, based on statistics of whattomine, it use MPH,Yiimp and Suprnova servers to mine most profitable coin, you must configure wallets on config.cfg and also have an account on Suprnova to use. 
+- Can mine on any of this pools (or all at same time): Ahashpool, Nanopool, YIIMP, Nicehash, Zpool, Unimining, Whattomine (virtual) HashRefinery, MPH with auto coin change based on pool profit for each algorithm with dual mining between diferent pools (ex. Eth on MPH and lbry on Zpool)
+- Can mine on Suprnova,Nicehash, MPH, Flypool or BlocksFactory pool without autochange or profit calculation, manual coin selection
+- Fastest miner for each algo/coin preselected for Nvidia Pascal (08/01/2017) on all pools.
+- Dual Mining between different pools (ex. Eth on MPH and lbry on Zpool)
+- Profit info from Whattomine,Bittrex and Cryptopia (based on your real hashrate) for manual coin selection
+- Unified software repository for all pools, no need one program for each pool
+- On fail no wait for interval ends, instant relaunch.
+- Auto Interval time for benchmarks, no need to change interval more.
+- Local currency info on main screen
+- Lastest version of miners available
+- Nvidia SMI Info (Power, temperatures...)
+- Pools Wallets actual and evolution info
+- Option to autochange based on 24h statistics (on supported pools)
+- Option for asociate command to launch before run to each miner (nvidia inspector for example to set overclock)
+- Miners and Pools fees are included in profit calculation
+- For mixed rigs (or for testing purpose on same cards rigs) you can group your cards allowing each group work at its best algo and difficulty
 
 
 
